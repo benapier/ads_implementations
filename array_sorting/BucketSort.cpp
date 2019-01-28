@@ -1,4 +1,3 @@
-#include <vector>
 #include "../header.h"
 
 void BucketSort(int data_array[], int array_size) {

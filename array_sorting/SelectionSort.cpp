@@ -1,5 +1,4 @@
 #include "../header.h"
-#include <utility>
 
 void SelectionSort(int array[], int array_size) {
     int element, pos;
