@@ -3,4 +3,4 @@ project(ads_implementations)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ads_implementations main.cpp sorting/BucketSort.cpp header.h sorting/SelectionSort.cpp sorting/SelectionSort.cpp)
+add_executable(ads_implementations main.cpp array_sorting/BucketSort.cpp header.h array_sorting/SelectionSort.cpp array_sorting/SelectionSort.cpp)
