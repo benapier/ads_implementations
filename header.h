@@ -7,5 +7,6 @@
 
 void BucketSort(int array[], int array_size);
 void SelectionSort(int array[], int array_size);
+void InsertionSort(int array[], int array_size);
 
 #endif //ADS_IMPLEMENTATIONS_HEADER_H
