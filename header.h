@@ -6,10 +6,16 @@
 #define ADS_IMPLEMENTATIONS_HEADER_H
 
 #include <utility>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <iostream>
 
 void BucketSort(int array[], int array_size);
 void SelectionSort(int array[], int array_size);
 void InsertionSort(int array[], int array_size);
 void BubbleSort(int array[], int array_size);
+void MergeSort(int array[], int left, int right);
+void Merge(int array[], int left, int mid, int right);
 
 #endif //ADS_IMPLEMENTATIONS_HEADER_H
