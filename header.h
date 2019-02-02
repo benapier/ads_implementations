@@ -11,6 +11,7 @@
 #include <iterator>
 #include <iostream>
 
+// Array sorting algorithms
 void BucketSort(int array[], int array_size);
 void SelectionSort(int array[], int array_size);
 void InsertionSort(int array[], int array_size);
