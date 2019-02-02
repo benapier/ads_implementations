@@ -4,12 +4,41 @@
 
 #include "BinarySearchTree.h"
 
+void BinarySearchTree::InOrderPrintRecursive(Node *root) {
+    if (root->left != nullptr) {
+        InOrderPrintRecursive(root->left);
+    }
+    std::cout << root->data << ", ";
+    if (root->right != nullptr) {
+        InOrderPrintRecursive(root->right);
+    }
+}
+
+std::string BinarySearchTree::GenererateLatexCode(std::string &return_string, Node *subtree_root) {
+    return_string += "[$" + std::to_string(subtree_root->data) + "$";
+    if (subtree_root->left == nullptr) {
+        if (subtree_root->right != nullptr) { // one right node
+            return_string += "[,phantom]";
+            GenererateLatexCode(return_string, subtree_root->right);
+        }
+    } else {
+        GenererateLatexCode(return_string, subtree_root->left);
+        if (subtree_root->right == nullptr) { // one left node
+            return_string += "[,phantom]";
+        } else { // two notes
+            GenererateLatexCode(return_string, subtree_root->right);
+        }
+    }
+    return_string += "]";
+    return return_string;
+}
+
 void BinarySearchTree::Add(int data) {
     if (root == nullptr) {
         root = new Node(data);
         return;
     }
-    Node* temp = root;
+    Node *temp = root;
     bool node_placed = false;
     if (root == nullptr) {
         root = new Node(data);
@@ -34,7 +63,7 @@ void BinarySearchTree::Add(int data) {
 }
 
 void BinarySearchTree::Remove(int data) {
-    Node* temp = root;
+    Node *temp = root;
     // find the node
     while (temp->data != data) {
         if (data <= temp->data) {
@@ -101,7 +130,7 @@ void BinarySearchTree::Remove(int data) {
                     if (is_temp_left_child) {
                         temp->parent->left = temp->right;
                     } else {
-                        temp->parent->right = temp-> right;
+                        temp->parent->right = temp->right;
                     }
                 }
             } else {

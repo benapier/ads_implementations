@@ -10,16 +10,16 @@
 
 
 struct Node {
-    Node* parent = nullptr;
-    Node* left = nullptr;
-    Node* right = nullptr;
+    Node *parent = nullptr;
+    Node *left = nullptr;
+    Node *right = nullptr;
     int data;
 
-    Node(int data) {
+    explicit Node(int data) {
         this->data = data;
     }
 
-    Node(int data, Node* parent) {
+    Node(int data, Node *parent) {
         this->data = data;
         this->parent = parent;
     }
@@ -27,17 +27,13 @@ struct Node {
 
 class BinarySearchTree {
 private:
-    void InOrderPrintRecursive(Node* root) {
-        if (root->left != nullptr) {
-            InOrderPrintRecursive(root->left);
-        }
-        std::cout << root->data << ", ";
-        if (root->right != nullptr) {
-            InOrderPrintRecursive(root->right);
-        }
-    }
+    void InOrderPrintRecursive(Node *root);
+
+    std::string GenererateLatexCode(std::string &return_string, Node *subtree_root);
+
 public:
-    Node* root = nullptr;
+    Node *root = nullptr;
+
     BinarySearchTree() = default;
 
     explicit BinarySearchTree(int data) {
@@ -59,6 +55,11 @@ public:
         std::cout << std::endl;
     }
 
+    std::string GetLatexCode() {
+        std::string output;
+        GenererateLatexCode(output, root);
+        return output;
+    }
 };
 
 
